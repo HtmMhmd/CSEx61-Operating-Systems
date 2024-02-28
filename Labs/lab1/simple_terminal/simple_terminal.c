@@ -1,30 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/wait.h>
-
-#define MAX_CMD_LEN 128
-#define MAX_NUM_ARGS 10
+#include  "utilis.h"
 
 int main() {
-    char cmd[MAX_CMD_LEN];
-    char *args[MAX_NUM_ARGS];
-    char *token;
-    int status;
-    pid_t pid;
 
     while (1) {
         printf("YOUR_COMMAND: ");
-        fgets(cmd, MAX_CMD_LEN, stdin);
+        /* Reading command from user*/
+        /* Storing the command in "cmd" variable*/
+        GET_INPUT_COMMAND();
+        /* Remove newline character \n in the end */
+        /* Replacing new line character with NULL as a list ending*/
 
-        // Remove trailing newline character
-        cmd[strcspn(cmd, "\n")] = 0;
+        cmd[strcspn(cmd, "\n")] = NULL;
+        /* Printing written command*/
+        //printf("YOUR COMMAND IS: %s", cmd);
 
-        // Exit the shell on 'exit' command
-        if (strcmp(cmd, "exit") == 0) {
-            break;
-        }
+        /* Exit the shell on exit command*/
+        if (EXIT_COMMAND()) break;
 
         // Tokenize the command string into arguments
         int i = 0;
