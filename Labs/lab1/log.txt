@@ -10,3 +10,10 @@ Child terminated
 Child terminated
 Exec failed.
 Child terminated
+Exec failed.
+Child terminated
+Child terminated
+Exec failed.
+Child terminated
+Child terminated
+Child terminated
