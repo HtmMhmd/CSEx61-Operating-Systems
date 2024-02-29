@@ -104,6 +104,7 @@ void get_enviroment_variable_value(char *ip, int index)
     }
 }
 
+
 void tokinize_command(void)
 {
     /*
@@ -143,13 +144,16 @@ void export_command(void)
     /*
     handling (export) command
     */
-
-    if (args[1] != 0) 
+    if(args[2] != 0)
     {
-        set_enviroment_variable_value(input + 7);
-        printf("%s\n", (input + 7));
+        command_type = NOT_BUILTIN_COMMAND;
+    }
+    else if ((args[1] != 0))
+    {
+        set_enviroment_variable_value(args[1]);
         command_type = BUILTIN_COMMAND;
     }
+     
 }
 
 void cd_command(void)
