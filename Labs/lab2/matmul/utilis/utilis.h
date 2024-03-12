@@ -1,3 +1,6 @@
+#ifndef UTILIS_H
+#define UTILIS_H
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,3 +19,5 @@ typedef struct {
 void *multiply_matrix(void *arg);
 void *multiply_row(void *arg);
 void *multiply_element(void *arg);
+
+#endif
