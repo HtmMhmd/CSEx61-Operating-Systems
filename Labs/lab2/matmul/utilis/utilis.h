@@ -1,10 +1,10 @@
-#ifndef UTILIS_H
-#define UTILIS_H
-
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#ifndef UTILIS_H
+#define UTILIS_H
 
 #ifndef NULL
 #define NULL 0
