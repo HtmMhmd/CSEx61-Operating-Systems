@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/root/CSEx61-Operating-Systems/Labs/lab2/matmul/utilis",
-      "program": "/root/CSEx61-Operating-Systems/Labs/lab2/matmul/utilis/build/Debug/outDebug",
+      "cwd": "/root/CSEx61-Operating-Systems/Labs/lab2/matmul",
+      "program": "/root/CSEx61-Operating-Systems/Labs/lab2/matmul/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

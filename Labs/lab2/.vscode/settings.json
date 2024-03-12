@@ -39,7 +39,7 @@
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [
     "/root/CSEx61-Operating-Systems/Labs/lab2/matmul/**",
-    "/usr/include"
+    "/usr/include/**"
   ],
   "C_Cpp_Runner.includeSearch": [
     "*",
@@ -60,6 +60,6 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "readtxt.h": "c"
+    "*.h": "c"
   }
 }

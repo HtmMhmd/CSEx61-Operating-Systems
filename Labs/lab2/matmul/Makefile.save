@@ -1,0 +1,16 @@
+CC = gcc
+CFLAGS = -Wall -Wextra
+
+all: myprogram
+
+myprogram: application.o utilis/utilis.o readtxtfiles/readtxt.o writetxtfiles/writetxt.oapplication.o utilis/utilis.o readtxtfiles/readtxt.o writetxtfiles/writetxt.o
+    $(CC) $(CFLAGS) main.o helper.o -o myprogram
+
+main.o: main.c
+    $(CC) $(CFLAGS) -c main.c
+
+helper.o: helper.c
+    $(CC) $(CFLAGS) -c helper.c
+
+clean:
+    rm -f *.o myprogram
