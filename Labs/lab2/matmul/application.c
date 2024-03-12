@@ -1,19 +1,4 @@
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-typedef struct {
-    int rows;
-    int cols;
-    int **values;
-} Matrix;
-
-Matrix *read_matrix(char *filename);
-void write_matrix(char *filename, Matrix *matrix);
-void *multiply_matrix(void *arg);
-void *multiply_row(void *arg);
-void *multiply_element(void *arg);
+#include "application.h"
 
 int main(int argc, char *argv[]) {
     char *file1 = (argc > 1) ? argv[1] : "a.txt";
@@ -43,46 +28,6 @@ int main(int argc, char *argv[]) {
     pthread_join(thread, NULL);
 
     return 0;
-}
-
-Matrix *read_matrix(char *filename) {
-    FILE *file = fopen(filename, "r");
-    if (file == NULL) {
-        printf("Cannot open file %s\n", filename);
-        exit(1);
-    }
-
-    Matrix *matrix = malloc(sizeof(Matrix));
-    fscanf(file, "row=%d col=%d", &matrix->rows, &matrix->cols);
-
-    matrix->values = malloc(matrix->rows * sizeof(int *));
-    for (int i = 0; i < matrix->rows; i++) {
-        matrix->values[i] = malloc(matrix->cols * sizeof(int));
-        for (int j = 0; j < matrix->cols; j++) {
-            fscanf(file, "%d", &matrix->values[i][j]);
-        }
-    }
-
-    fclose(file);
-    return matrix;
-}
-
-void write_matrix(char *filename, Matrix *matrix) {
-    FILE *file = fopen(filename, "w");
-    if (file == NULL) {
-        printf("Cannot open file %s\n", filename);
-        exit(1);
-    }
-
-    fprintf(file, "row=%d col=%d\n", matrix->rows, matrix->cols);
-    for (int i = 0; i < matrix->rows; i++) {
-        for (int j = 0; j < matrix->cols; j++) {
-            fprintf(file, "%d ", matrix->values[i][j]);
-        }
-        fprintf(file, "\n");
-    }
-
-    fclose(file);
 }
 
 void *multiply_matrix(void *arg) {
