@@ -11,8 +11,10 @@
 #endif
 
 typedef struct {
+    // variables to store the number of rows and number of columns in 2d matrix
     int rows;
     int cols;
+    // dynamically allocated 2d array to store the matrix values
     int **values;
 } Matrix;
 

@@ -1,8 +1,8 @@
 #include "application.h"
 
 int main(int argc, char *argv[]) {
-    char *file1 = (argc > 1) ? argv[1] : "../test1/a.txt";
-    char *file2 = (argc > 2) ? argv[2] : "../test1/b.txt";
+    char *file1 = (argc > 1) ? argv[1] : "a.txt";
+    char *file2 = (argc > 2) ? argv[2] : "b.txt";
     char *file3 = (argc > 3) ? argv[3] : "c";
 
     Matrix *A = read_matrix(file1);

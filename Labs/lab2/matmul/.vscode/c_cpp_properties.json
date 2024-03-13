@@ -4,8 +4,8 @@
       "name": "linux-gcc-x64",
       "includePath": [
         "${workspaceFolder}/**",
-        "/root/CSEx61-Operating-Systems/Labs/lab2/matmul/**",
-        "/usr/include/**"
+        "/usr/include/**",
+        "/usr/include"
       ],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "gnu17",
