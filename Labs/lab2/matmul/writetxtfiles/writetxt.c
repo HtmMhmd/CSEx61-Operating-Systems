@@ -1,6 +1,7 @@
 #include "writetxt.h"
 
-void write_matrix(char *filename, Matrix *matrix) {
+void write_matrix(char *filename, Matrix *matrix) 
+{
     FILE *file = fopen(filename, "w");
     if (file == NULL) {
         printf("Cannot open file %s\n", filename);
