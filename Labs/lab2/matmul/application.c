@@ -23,9 +23,17 @@ int main(int argc, char *argv[])
     // Allocate an empty matrix for storing the result matrix
     Matrix *Matrix_for_save = createMatrix(A->rows, B->cols);
     // Create a thread to multiply the matrices
+
     pthread_t thread;
+    
+    start_time = clock();
+
     pthread_create(&thread, NULL, multiply_matrix, NULL);
     pthread_join(thread, (void **)&Matrix_for_save);
+
+    end_time = clock();
+    double execution_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Execution time of matrix multplication is :\n%f milli seconds\n", execution_time* 1000);
 
     // Save the result matrix to a file
     char *saved_matrix_filename_full = "saved_matrices/c_per_matrix.txt";
@@ -37,6 +45,9 @@ int main(int argc, char *argv[])
 
     // Create a thread per row to multiply and store the result
     rowMatrix_stdReturn *returnMatrix;
+
+    start_time = clock();
+
     for (int i = 0; i < A->rows; i++) 
     {
         pthread_create(&thread, NULL, multiply_row, (void *)(long) i);
@@ -47,8 +58,12 @@ int main(int argc, char *argv[])
             Matrix_for_save->values[returnMatrix->index_row][j] = returnMatrix->matrix->values[0][j];
         }
     }
-    
+
+    end_time = clock();
+    execution_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Execution time of row multplication is :\n%f milli seconds\n", execution_time* 1000);
     // Save the result matrix to a file
+
     char *saved_matrix_filename_rows = "saved_matrices/c_per_row.txt";
     write_matrix(saved_matrix_filename_rows , Matrix_for_save);
     //free(Matrix_for_save);
@@ -56,6 +71,8 @@ int main(int argc, char *argv[])
     // Allocate an empty matrix for storing the result matrix
     //Matrix_for_save = createMatrix(A->rows, B->cols);
     elemantMatrix_stdReturn *returnElemant;
+    
+    start_time = clock();
 
     // Create a thread per element to multiply and store the result
     for (int i = 0; i < A->rows; i++) 
@@ -68,6 +85,9 @@ int main(int argc, char *argv[])
         }
     }
 
+    end_time = clock();
+    execution_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
+    printf("Execution time of elemant multplication is :\n%f milli seconds\n", execution_time *1000);
     // Save the result matrix to a file
     char *saved_matrix_filename_elemant = "saved_matrices/c_per_elemant.txt";
     write_matrix(saved_matrix_filename_elemant , Matrix_for_save);
