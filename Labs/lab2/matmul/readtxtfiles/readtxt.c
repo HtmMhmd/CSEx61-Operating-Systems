@@ -4,7 +4,7 @@
  * Reads matrix in the format presented in the test cases.
  *
  * @param filename : string (path) which the formatted matrix presents.
- * @return matrix  : struct of cols, rows, values.
+ * @return matrix  : struct of type Matrix contains cols, rows, values.
  */
 Matrix *read_matrix(char *filename) 
 {

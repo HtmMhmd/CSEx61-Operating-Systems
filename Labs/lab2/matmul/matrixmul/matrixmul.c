@@ -4,7 +4,7 @@
  * -------------------------
  * Multiplies two matrices and stores the result in a new matrix.
  *
- * @param arg: Unused argument (required for thread function signature).
+ * @param arg: Unused argument .
  *
  * @return: A pointer to a struct containing the result matrix .
  */
@@ -34,7 +34,7 @@ void *multiply_matrix(void *arg) {
  * Function: multiply_row
  * ----------------------
  * Multiplies a row of matrix A with matrix B and stores the result in a new matrix.
- *
+ *`
  * @param arg: The row index to multiply.
  *
  * @return: A pointer to a struct containing the result matrix and its data.

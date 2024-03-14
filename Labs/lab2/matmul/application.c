@@ -10,7 +10,11 @@ int main(int argc, char *argv[])
     // Read matrices from files
     Matrix *A = read_matrix(file1);
     Matrix *B = read_matrix(file2);
-
+    if (A->cols != B->rows)
+    {
+        printf("The number of rows in the first matrix should be equal to the number of columns in the second matrix\n");
+        return 1;
+    }
     // You should assign 2 matrices values to matrices struct to begin the program 
     // Set the matrices in the global variable
     matrices.matrix1 = A;
