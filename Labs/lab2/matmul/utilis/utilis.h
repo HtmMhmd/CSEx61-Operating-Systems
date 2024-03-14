@@ -18,12 +18,14 @@
 /*======================================================================================*/
 /*                              TYPES DEFINITIONS                                       */
 /*======================================================================================*/
-// define type struct Matrix to store the matrix
+/** define type struct Matrix to store the matrix
+* variables to store the number of rows and number of columns in 2d matrix
+* dynamically allocated 2d array to store the matrix values
+*/
 typedef struct {
-    // variables to store the number of rows and number of columns in 2d matrix
+    
     int rows;
     int cols;
-    // dynamically allocated 2d array to store the matrix values
     int **values;
 } Matrix;
 
@@ -34,6 +36,14 @@ typedef enum {
 /*======================================================================================*/
 /*                              FUNCTIONS DEFINITIONS                                   */
 /*======================================================================================*/
-void open_txt_File(char *filename, FILE **file, open_file_t open_type);
+
+/**
+ * Opens the txt file.
+ *
+ * @param filename   : string (path) of the txt file.
+ * @param open_type  : enum indicating the type of file operation.
+ * @return file      : pointer to the opened file.
+ */
+FILE *open_txt_File(char *filename, open_file_t open_type);
 
 #endif

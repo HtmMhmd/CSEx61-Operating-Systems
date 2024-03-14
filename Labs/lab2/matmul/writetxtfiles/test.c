@@ -5,8 +5,8 @@ int main(int argc, char *argv[]){
     // variables for storing the columns number and rows number
     int columns_number, rows_number;
 
-    char *file1    = "../../test1/a.txt";
-    char *filename = (argc > 1) ? argv[1] : "c_test.txt";
+    char *file1    = (argc > 1) ? argv[1] : "../../test1/a.txt";
+    char *filename = (argc > 2) ? argv[2] : "c_test.txt";
 
     printf("%s\n", filename);
     printf("%s\n", file1);  

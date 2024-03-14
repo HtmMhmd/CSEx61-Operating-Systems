@@ -1,31 +1,22 @@
 #include "utilis.h"
 
-void open_txt_File(char *filename, FILE **file, open_file_t open_type)
+/**
+ * Opens the txt file.
+ *
+ * @param filename   : string (path) of the txt file.
+ * @param open_type  : enum indicating the type of file operation.
+ * @return file      : pointer to the opened file.
+ */
+FILE *open_txt_File(char *filename, open_file_t open_type)
 {
-    /*
-    open txt file using filename
-    @params
-    filename    : sring which the formated matrix presents
-    file        : double pointer to a FILE type          ( to use dynamic memory allocation)
-    open_file_t : enum type to specify the open file type read or write
-    */
-    if      (READ_TXT == open_type)
+    FILE *file;
+    if (open_type == READ_TXT)
     {
-        *file = fopen(filename, "r");
+        file = fopen(filename, "r");
     }
-    else if (WRITE_TXT == open_type)
+    else if (open_type == WRITE_TXT)
     {
-        *file = fopen(filename, "w");
+        file = fopen(filename, "w");
     }
-    else
-    {
-        printf("WRONG OPEN FILE TYPE");
-        exit(1);
-    }
-    if (*file == NULL) 
-    {
-
-        printf("CANNOT OPEN FILE %s\n", filename);
-        exit(1);
-    }
+    return file;
 }

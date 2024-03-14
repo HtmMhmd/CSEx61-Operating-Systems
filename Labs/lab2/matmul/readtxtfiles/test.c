@@ -4,9 +4,9 @@ int main(int argc, char *argv[]){
     // variables for storing the columns number and rows number
     int columns_number, rows_number;
 
-    char *file1 = (argc > 1) ? argv[1] : "../../test1/a.txt";
+    char *file = (argc > 1) ? argv[1] : "../../test3/a.txt";
     
-    Matrix *A = read_matrix(file1);
+    Matrix *A = read_matrix(file);
     rows_number     = A->rows;
     columns_number  = A->cols;
 
