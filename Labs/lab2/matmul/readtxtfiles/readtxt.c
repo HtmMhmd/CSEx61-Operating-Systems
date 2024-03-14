@@ -1,20 +1,5 @@
 #include "readtxt.h"
 
-void open_txt_File(char *filename, FILE **file)
-{
-    /*
-    open txt file using filename
-    @params
-    filename : sring which the formated matrix presents
-    file     : double pointer to a FILE type          ( to use dynamic memory allocation)
-    */
-    *file = fopen(filename, "r");
-    if (*file == NULL) 
-    {
-        printf("Cannot open file %s\n", filename);
-        exit(1);
-    }
-}
 void store_values_in_txt_into(Matrix *matrix, FILE **file)
 {
     /*
@@ -40,20 +25,22 @@ void store_values_in_txt_into(Matrix *matrix, FILE **file)
     }
 }
 
-Matrix *read_matrix(char *filename) {
+Matrix *read_matrix(char *filename) 
+{
     /*
     reads matrix in the format presented in the test cases
     @params
-    filename : sring which the formated matrix presents
+    filename : sring(path) which the formated matrix presents
     @returns 
     matrix   : type struct of cols, rows, values
     */
-
+   
     // file to store the matrix in stack
     FILE **file = alloca(sizeof(FILE *));
-    
+    // read file
+    open_file_t open_type = READ_TXT;
     // open txt file
-    open_txt_File(filename, file);
+    open_txt_File(filename, file, open_type);
 
     // matrix to store the txt file formated matrix values
     Matrix *matrix = malloc(sizeof(Matrix));

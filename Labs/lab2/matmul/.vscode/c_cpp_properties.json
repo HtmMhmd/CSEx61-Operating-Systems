@@ -5,7 +5,8 @@
       "includePath": [
         "${workspaceFolder}/**",
         "/usr/include/**",
-        "/usr/include"
+        "/usr/include",
+        "/root/CSEx61-Operating-Systems/Labs/lab2/matmul/**"
       ],
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "gnu17",
