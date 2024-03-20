@@ -36,11 +36,11 @@
 struct station {
     int waiting_passengers; // passengers waiting at the station
     int free_seats; // free seats in the train
-    int seated_passengers; // seated passengers after enterng the train
-    int entered;
+    int seated_passengers; // not yet seated passengers after enterng the train
     pthread_mutex_t Mutex_door; // mutex lock
     pthread_cond_t Cond_train_arrived; // condition variable for train arrival
     pthread_cond_t Cond_passengers_seated; // condition variable for passengers seated
+
 };
 
 /*============================================================================*/
