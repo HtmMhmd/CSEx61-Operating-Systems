@@ -7,18 +7,10 @@
  * or meets the specifications given, but hopefully it's at least pretty
  * close.
  */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <signal.h>
-#include <time.h>
-#include <unistd.h>
-#include <pthread.h>
-
-#include "caltrain.h"
-
 // Count of passenger threads that have completed (i.e. station_wait_for_train
 // has returned) and are awaiting a station_on_board() invocation.
+#include "caltrain.h"
+
 volatile int threads_completed = 0;
 
 void*
@@ -171,7 +163,7 @@ main()
 			threads_reaped, threads_to_reap,
 			(threads_to_reap != threads_reaped) ? " *****" : "");
 
-		if (threads_to_reap != threads_reaped) {
+		if (threads_to_reap != (threads_reaped)) {
 			fprintf(stderr, "Error: Too many passengers on this train!\n");
 			exit(1);
 		}

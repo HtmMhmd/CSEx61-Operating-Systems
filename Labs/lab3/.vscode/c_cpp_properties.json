@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "linux-clang-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/**"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "${default}",
+            "intelliSenseMode": "${default}",
+            "compilerArgs": [
+                "-pthread"
+            ]
+        }
+    ],
+    "version": 4
+}
